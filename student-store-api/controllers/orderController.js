@@ -29,7 +29,7 @@ exports.getOrderById = async (req, res) => {
             },
         })
         if (!order) {
-            res.status(404).json({ message: 'Order not found' })
+            return res.status(404).json({ message: 'Order not found' })
         }
         res.json(order)
     } catch (error) {
