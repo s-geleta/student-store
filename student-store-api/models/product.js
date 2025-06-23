@@ -1,5 +1,5 @@
 const { PrismaClient } = require('@prisma/client')
-const { product } = require('../src/db/db')
+const e = require('express')
 
 const prisma = new PrismaClient()
 
@@ -13,15 +13,39 @@ class Product {
     this.category = product.category
   }
 
-  static async getAll() {
-    const products = await prisma.product.findMany()
+  static async getAll(category, sortBy) {
+    const where = {}
+    const orderBy = []
+
+    if (category) {
+      where.category = {
+        contains: category,
+        mode: 'insensitive'
+      }}
+    
+
+    if (sortBy === 'price' || sortBy === 'name') {
+      orderBy.push({[sortBy]: 'asc'})
+    } else if (sortBy === '-price') {
+      orderBy.push({price: 'desc'})
+    }else if (sortBy === '-name') {
+      orderBy.push({name: 'desc'})
+    }
+    
+    const products = await prisma.product.findMany({
+        where,
+        orderBy,
+
+    }  
+    )
     return products.map(product => new Product(product))
+
   }
 
   static async getById(id) {
     const product = await prisma.product.findUnique({
       where: {
-        id: Number,
+        id: Number(id),
       },
     })
     return product ? new Product(product) : null
@@ -41,7 +65,7 @@ class Product {
       },
       data: product,
     })
-    return product ? new Product(updatedProduct) : null
+    return updatedProduct ? new Product(updatedProduct) : null
   }
 
   static async delete(id) {
@@ -50,7 +74,7 @@ class Product {
         id: Number(id),
       },
     })
-    return product ? new Product(deletedProduct) : null
+    return deletedProduct ? new Product(deletedProduct) : null
   }
 }
 

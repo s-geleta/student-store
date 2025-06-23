@@ -19,7 +19,25 @@ model Product {
   name      String
   description String
   price     Float
-  image_url String
+  imageUrl String
   category  String
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  customer  Int
+  totalPrice Float
+  status    String
+  createdAt DateTime @default(now())
+  orderItems OrderItem[]
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  quantity  Int
+  price     Float
+  order     Order    @relation(fields: [orderId], references: [id])
+  orderId   Int
 }
 
