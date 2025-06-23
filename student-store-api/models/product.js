@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client')
+const { product } = require('../src/db/db')
 
 const prisma = new PrismaClient()
 
@@ -20,10 +21,10 @@ class Product {
   static async getById(id) {
     const product = await prisma.product.findUnique({
       where: {
-        id: id,
+        id: Number,
       },
     })
-    return new Product(product)
+    return product ? new Product(product) : null
   }
 
   static async create(product) {
@@ -36,20 +37,20 @@ class Product {
   static async update(id, product) {
     const updatedProduct = await prisma.product.update({
       where: {
-        id: id,
+        id: Number(id),
       },
       data: product,
     })
-    return new Product(updatedProduct)
+    return product ? new Product(updatedProduct) : null
   }
 
   static async delete(id) {
     const deletedProduct = await prisma.product.delete({
       where: {
-        id: id,
+        id: Number(id),
       },
     })
-    return deletedProduct
+    return product ? new Product(deletedProduct) : null
   }
 }
 
