@@ -73,3 +73,35 @@ exports.deleteOrder = async (req, res) => {
         res.status(500).json({ message: 'Server error' })
     }
 }   
+
+exports.addOrderItem = async (req, res) => {
+    try {
+        const orderItem = await prisma.orderItem.create({
+            data: req.body,
+        })
+        res.json(orderItem)
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' })
+    }
+}
+
+exports.getOrderTotal = async (req, res) => {
+    try {
+        const { id } = req.params
+        const order = await prisma.order.findUnique({
+            where: {
+                id: Number(id),
+            },
+            include: {
+                orderItems: true,
+            },
+        })
+        if (!order) {
+            res.status(404).json({ message: 'Order not found' })
+        }
+        const total = order.orderItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+        res.json(total)
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' })
+    }
+}   

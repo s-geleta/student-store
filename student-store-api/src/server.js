@@ -7,11 +7,11 @@ const express = require('express')
 const productsRouter = require('../routes/products')
 const app = express()
 
-const corsOption = {
+/*const corsOption = {
     origin: 'http://localhost:3000',
 };
 
-app.use(cors(corsOption))
+app.use(cors(corsOption))*/
 app.use(express.json())
 
 
