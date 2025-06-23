@@ -1,4 +1,4 @@
-const { PrismaClient } = require('@prisma/client')
+/*const { PrismaClient } = require('@prisma/client')
 const e = require('express')
 
 const prisma = new PrismaClient()
@@ -78,4 +78,4 @@ class Product {
   }
 }
 
-module.exports = Product;
+module.exports = Product; */

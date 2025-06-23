@@ -1,57 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const Product = require('../models/product')
+const productController = require('../controllers/productController')
 
-router.get('/', async (req, res) => {
-    try{
-        const {category, sortBy} = req.query
-        let products = await Product.getAll(category, sortBy)
-        res.json(products)
-    } catch (error) {
-        res.status(500).json({message: 'Server error'})
-    }
-})
 
-router.get('/:id', async (req, res) => {
-    try {
-        const product = await Product.getById(req.params.id)
-        if(!product) {
-            res.status(404).json({message: 'Product not found'})
-        }
-        
-        res.json(product)
-    } catch (error) {
-        res.status(500).json({message: 'Server error'})
-    }
-})
 
-router.post('/', async (req, res) => {
-    try {
-        const product = await Product.create(req.body)
-        res.json(product)
-    } catch (error) {
-        res.status(500).json({message: 'Server error'})
-    }
-})
+router.get('/', productController.getAllProducts)
+router.get('/:id', productController.getProductById)
+router.post('/', productController.createProduct)
+router.put('/:id', productController.updateProduct) 
+router.delete('/:id', productController.deleteProduct)  
 
-router.put('/:id', async (req, res) => {
-    try {
-        const product = await Product.update(req.params.id, req.body)
-        res.json(product)
-    } catch (error) {
-        res.status(500).json({message: 'Server error'})
-    }
-})
- 
-
-router.delete('/:id', async (req, res) => {
-    try {
-        await Product.delete(req.params.id)
-        res.json({message: 'Product deleted'})
-    } catch (error) {
-        res.status(500).json({message: 'Server error'})
-    }
-})
- 
-
-module.exports = router 
+module.exports = router
