@@ -9,6 +9,7 @@ import NotFound from "../NotFound/NotFound";
 import { removeFromCart, addToCart, getQuantityOfItemInCart, getTotalItemsInCart } from "../../utils/cart";
 import "./App.css";
 
+
 function App() {
 
   // State variables
@@ -23,8 +24,15 @@ function App() {
   const [error, setError] = useState(null);
   const [order, setOrder] = useState(null);
 
+  useEffect(() => {
+    setIsFetching(true);
+    axios.get("http://localhost:3000/products")
+      .then(res => setProducts(res.data))
+      .catch(err => setError(err))
+      .finally(() => setIsFetching(false));
+  }, []);
   // Toggles sidebar
-  const toggleSidebar = () => setSidebarOpen((isOpen) => !isOpen);
+  const toggleSidebar = () => setSidNebarOpen((isOpen) => !isOpen);
 
   // Functions to change state (used for lifting state)
   const handleOnRemoveFromCart = (item) => setCart(removeFromCart(cart, item));
@@ -37,6 +45,8 @@ function App() {
   };
 
   const handleOnCheckout = async () => {
+
+
   }
 
 
