@@ -32,7 +32,7 @@ function App() {
       .finally(() => setIsFetching(false));
   }, []);
   // Toggles sidebar
-  const toggleSidebar = () => setSidNebarOpen((isOpen) => !isOpen);
+  const toggleSidebar = () => setSidebarOpen((isOpen) => !isOpen);
 
   // Functions to change state (used for lifting state)
   const handleOnRemoveFromCart = (item) => setCart(removeFromCart(cart, item));
@@ -45,8 +45,8 @@ function App() {
   };
 
   const handleOnCheckout = async () => {
-
-
+    setIsCheckingOut(true);
+    
   }
 
 
