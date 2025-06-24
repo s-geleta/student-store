@@ -6,17 +6,23 @@ import Sidebar from "../Sidebar/Sidebar";
 import Home from "../Home/Home";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import NotFound from "../NotFound/NotFound";
-import { removeFromCart, addToCart, getQuantityOfItemInCart, getTotalItemsInCart } from "../../utils/cart";
+import {
+  removeFromCart,
+  addToCart,
+  getQuantityOfItemInCart,
+  getTotalItemsInCart,
+} from "../../utils/cart";
 import "./App.css";
-
+import { calculateTotal } from "../../utils/calculations";
+import { calculateTaxesAndFees } from "../../utils/calculations";
+import { calculateItemSubtotal } from "../../utils/calculations";
 
 function App() {
-
   // State variables
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All Categories");
   const [searchInputValue, setSearchInputValue] = useState("");
-  const [userInfo, setUserInfo] = useState({ name: "", dorm_number: ""});
+  const [userInfo, setUserInfo] = useState({ name: "", dorm_number: "" });
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [isFetching, setIsFetching] = useState(false);
@@ -24,11 +30,13 @@ function App() {
   const [error, setError] = useState(null);
   const [order, setOrder] = useState(null);
 
+  //fetching products from database
   useEffect(() => {
     setIsFetching(true);
-    axios.get("http://localhost:3000/products")
-      .then(res => setProducts(res.data))
-      .catch(err => setError(err))
+    axios
+      .get("http://localhost:3000/products")
+      .then((res) => setProducts(res.data))
+      .catch((err) => setError(err))
       .finally(() => setIsFetching(false));
   }, []);
   // Toggles sidebar
@@ -46,9 +54,41 @@ function App() {
 
   const handleOnCheckout = async () => {
     setIsCheckingOut(true);
-    
-  }
+    setError(null);
 
+    const items = Object.keys(cart).map((productId) => {
+      const product = products.find((p) => p.id === Number(productId));
+      return {
+        productId: productId,
+        quantity: cart[productId],
+        price: product?.price,
+      };
+    });
+    const { name, email } = userInfo;
+    const subTotal = items.reduce((acc, item) => acc + calculateItemSubtotal(item.price, item.quantity), 0);
+    const taxesAndFees = calculateTaxesAndFees(subTotal);
+    const totalWithTaxesAndFees = calculateTotal(subTotal);
+    const order = {
+      customer: name,
+      dorm_number: email,
+      total_price: Number(totalWithTaxesAndFees.toFixed(2)),
+      status: "pending",
+      createdAt: new Date(),
+      items: items
+    };
+    try {
+      console.log(order);
+      const response = await axios.post("http://localhost:3000/orders", order);
+      setOrder(response.data);
+      setIsCheckingOut(false);
+      setUserInfo({ name: "", dorm_number: "" });
+    } catch (error) {
+      console.error(error);
+      setError("Checkout failed. Please try again.");
+      setIsCheckingOut(false);
+    }
+
+  };
 
   return (
     <div className="App">
@@ -126,4 +166,3 @@ function App() {
 }
 
 export default App;
- 
