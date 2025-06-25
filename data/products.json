@@ -4,7 +4,7 @@
         "id": 1,
         "name": "College Hoodie",
         "category": "Apparel",
-        "image_url": "https://tinyurl.com/college-hoodie",
+        "image_url": "https://lemuta.com/cdn/shop/files/Unbenannt-6.webp?crop=center&height=1200&v=1718879931&width=1200",
         "description": "Comfortable and stylish hoodie with the college logo.",
         "price": 29.99
       },
@@ -12,7 +12,7 @@
         "id": 2,
         "name": "Algebra Textbook",
         "category": "Books",
-        "image_url": "https://tinyurl.com/algebra-book",
+        "image_url": "https://s.turbifycdn.com/aah/hawkespublishing/college-algebra-concise-approach-textbook-28.png",
         "description": "Comprehensive textbook covering all aspects of algebra.",
         "price": 59.99
       },
@@ -20,7 +20,7 @@
         "id": 3,
         "name": "College Notebook",
         "category": "Supplies",
-        "image_url": "https://tinyurl.com/college-notebook",
+        "image_url": "https://static.vecteezy.com/system/resources/previews/048/086/075/non_2x/a-spiral-notebook-with-a-vibrant-blue-cover-slightly-open-to-reveal-blank-pages-inviting-creativity-and-note-taking-isolated-on-a-transparent-background-free-png.png",
         "description": "Durable notebook with college branding, perfect for note-taking.",
         "price": 6.99
       },
@@ -28,7 +28,7 @@
         "id": 4,
         "name": "College Pen",
         "category": "Supplies",
-        "image_url": "https://tinyurl.com/college-pen",
+        "image_url": "https://static.vecteezy.com/system/resources/previews/046/028/306/non_2x/blue-pen-on-transparent-background-free-png.png",
         "description": "Smooth-writing pen with college logo, ideal for writing and exams.",
         "price": 1.99
       },
@@ -36,7 +36,7 @@
         "id": 5,
         "name": "College Mug",
         "category": "Accessories",
-        "image_url": "https://tinyurl.com/college-mug",
+        "image_url": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/25d45014-8cc3-4c98-b02c-5a0cf3a55ddd/dcqyqvy-f7d05510-f19d-40be-aa74-598de1733d65.png/v1/fill/w_951,h_840/blue_mug_on_a_transparent_background_by_prussiaart_dcqyqvy-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTA0IiwicGF0aCI6IlwvZlwvMjVkNDUwMTQtOGNjMy00Yzk4LWIwMmMtNWEwY2YzYTU1ZGRkXC9kY3F5cXZ5LWY3ZDA1NTEwLWYxOWQtNDBiZS1hYTc0LTU5OGRlMTczM2Q2NS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.R444aLORfP1C2NCgpKbfKVwmMybDCLMqs-V_c_V7LyA",
         "description": "Ceramic mug with college emblem, perfect for coffee or tea.",
         "price": 9.99
       },
@@ -44,7 +44,7 @@
         "id": 6,
         "name": "College Beanie",
         "category": "Apparel",
-        "image_url": "https://tinyurl.com/college-beanie",
+        "image_url": "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-blue-beany-hat-toque-caps-png-image_10278266.png",
         "description": "Warm and cozy beanie with the college logo, perfect for cold weather.",
         "price": 14.99
       },
@@ -52,7 +52,7 @@
         "id": 7,
         "name": "Energy Drink",
         "category": "Snacks",
-        "image_url": "https://tinyurl.com/cp-energy-drink",
+        "image_url": "https://www.celsius.com/wp-content/uploads/2023/12/CELSIUS-Blue-Razz-Fizz-Free-Single-Can-Front.png",
         "description": "Refreshing energy drink to keep you focused during long study sessions.",
         "price": 2.99
       },
@@ -60,7 +60,7 @@
         "id": 8,
         "name": "Chocolate Bar",
         "category": "Snacks",
-        "image_url": "https://tinyurl.com/cp-chocolate-bar",
+        "image_url": "https://cloudfront-eu-central-1.images.arcpublishing.com/williamreed/YJUK6XM5LFMK7HFPX4TUWGXBH4.png",
         "description": "Delicious chocolate bar for a quick snack between classes.",
         "price": 1.49
       },
@@ -68,9 +68,65 @@
         "id": 9,
         "name": "Granola Bar",
         "category": "Snacks",
-        "image_url": "https://tinyurl.com/cp-granola-bar",
+        "image_url": "https://delfortgroup.com/wp-content/uploads/2024/01/Chocolate-Bar-Wrapping-Paper.png?v=1706191765",
         "description": "Healthy granola bar, perfect for a quick energy boost.",
         "price": 1.29
+      },
+      {
+        "id": 10,
+        "name": "Cookies",
+        "category": "Snacks",
+        "image_url": "https://png.pngtree.com/recommend-works/png-clipart/20240817/ourmid/pngtree-cookies-packaging-illustration-png-image_13497723.png",
+        "description": "Delicious cookies for a quick snack between classes.",
+        "price": 1.99  
+      },
+      {
+        "id": 11,
+        "name": "Pencil",
+        "category": "Supplies",
+        "image_url": "https://image.similarpng.com/file/similarpng/original-picture/2020/09/Blue-pencil-with-rubber-on-transparent-background-PNG.png",
+        "description": "Useful pencil for writing and note-taking.",
+        "price": 1.99
+      },
+      {
+        "id": 12,
+        "name": "College T-Shirt",
+        "category": "Apparel",
+        "image_url": "https://static.vecteezy.com/system/resources/thumbnails/044/813/150/small_2x/blank-navy-blue-t-shirt-mockup-isolated-on-transparent-background-png.png",
+        "description": "Stylish tee for spring and summer.",
+        "price": 10.99
+      },
+      {
+        "id": 13,
+        "name": "Subject Folder",
+        "category": "Supplies",
+        "image_url": "https://www.rochester100.com/Shared/images/product/Nicky-s-4-Pocket/Rochester_100_Nickys_Folders_Multiple_Pocket_4_Pocket_Powder-Blue-2.png",
+        "description": "Helpful folder for organizing your study materials.",
+        "price": 2.99
+      },
+      {
+        "id": 14,
+        "name": "College Socks",
+        "category": "Apparel",
+        "image_url": "https://viasox.com/cdn/shop/files/AnkleCompression-9-tinified-262515.png?v=1750714961&width=768",
+        "description": "Soft socks for comfortable walking.",
+        "price": 5.99
+      },
+      {
+        "id": 15,
+        "name": "Pretzels",
+        "category": "Snacks",
+        "image_url": "https://static.vecteezy.com/system/resources/previews/048/922/210/non_2x/bavarian-pretzel-isolated-on-transparent-background-png.png",
+        "description": "Delicious pretzels for a quick snack between classes.",
+        "price": 1.99
+      },
+      {
+        "id": 16,
+        "name":"Phone Case",
+        "category": "Accessories",
+        "image_url": "https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-3d-phone-case-mockup-png-image_6143046.png",
+        "description": "Cute phone case for your phone.",
+        "price": 15.99
       }
     ]
   }

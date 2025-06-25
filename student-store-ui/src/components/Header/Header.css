@@ -1,0 +1,40 @@
+.Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    background-color: whitesmoke;
+    padding:30px;
+    border-top: 4px double darkblue;
+    border-bottom: 4px double darkblue;
+}
+
+.Header h1 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #171159;
+    text-shadow: 4px 4px 2px slategray;
+    -webkit-text-stroke: 1.5px whitesmoke;
+  
+}
+
+.Header p {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 2px 5px lightgrey;
+
+}   
+
+.Header img {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    margin-top: -30px;
+    margin-bottom: -40px;
+    z-index: -1;
+}   

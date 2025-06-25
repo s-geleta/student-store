@@ -6,6 +6,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Home from "../Home/Home";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import NotFound from "../NotFound/NotFound";
+import Header from "../Header/Header";
 import {
   removeFromCart,
   addToCart,
@@ -86,7 +87,7 @@ function App() {
       const response = await axios.post("http://localhost:3000/orders", order);
       setOrder(response.data);
       setIsCheckingOut(false);
-      setUserInfo({ name: "", dorm_number: "" });
+      setUserInfo({ name: "", dormNumber: "" });
     } catch (error) {
       console.error({
         message: error.message, 
@@ -120,7 +121,9 @@ function App() {
           order={order}
           setOrder={setOrder}
         />
+        <pastOrders />
         <main>
+          <Header />
           <SubNavbar
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}

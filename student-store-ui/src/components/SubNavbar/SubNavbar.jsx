@@ -30,6 +30,9 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
                 <button onClick={() => setActiveCategory(cat)}>{cat}</button>
               </li>
             ))}
+            <li className="past-orders">
+              <button href="pastOrders.jsx">Past Orders</button>
+            </li>
           </ul>
         </div>
         

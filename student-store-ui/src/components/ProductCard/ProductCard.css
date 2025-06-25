@@ -4,20 +4,32 @@
   background: var(--pure-white);
   display: flex;
   flex-direction: column;
-  border: solid 1px var(--border-color);
+  border: solid 3px whitesmoke;
+  border-radius: 20px;
+  background: #e3e3e3;
+
 }
 .ProductCard .media {
   height: 250px;
   width: 100%;
+  background: transparent;
 }
 .ProductCard .media img {
-  height: 250px;
+  max-height: 250px;
   width: 248px;
+  border-radius: 20px;
+  object-fit: contain;
+  padding: 3px;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 .ProductCard .product-info {
   flex: 1;
   display: flex;
-  border-top: solid 1px var(--border-color);
+  border-top: solid 2px whitesmoke;
 }
 .ProductCard .info {
   flex: 1;
@@ -26,11 +38,17 @@
   padding: 8px 12px;
 }
 .ProductCard .info .product-name {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 520;
+  color: #242338;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-bottom: 8px;
 }
 .ProductCard .info .product-price {
-  font-size: 14px;
+  font-size: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #98b8d6;
+  font-weight: 600;
 }
 .ProductCard .actions {
   width: 80px;
@@ -46,11 +64,14 @@
   padding: 5px;
 }
 .ProductCard .actions .quantity .amt {
-  background: var(--accent-orange);
+  background: #29a5c4;
   color: white;
+  text-shadow: 1px 1px 1px grey;
   width: 30px;
   height: 20px;
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 1px lightgrey solid;
+  padding-bottom: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,12 +87,18 @@
 .ProductCard .actions .buttons i {
   width: 20px;
   height: 20px;
-  border: solid 1px var(--bright-green);
-  color: var(--bright-green);
+  border: solid 2px #8dc4f7;
+  color:#8dc4f7;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
   margin: 10px 5px;
+  border-radius: 40px;
+}
+
+.ProductCard .actions .buttons i:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
 }

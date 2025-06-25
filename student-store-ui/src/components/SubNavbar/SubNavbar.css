@@ -40,7 +40,7 @@
 .SubNavbar .content .search-bar i {
   height: 40px;
   width: 40px;
-  background: var(--bright-green);
+  background: #98b8d6;
   color: white;
   fill: white;
   display: flex;
@@ -76,7 +76,7 @@
 
 .SubNavbar .content .cart {
   color: var(--pure-white);
-  background: var(--bright-green);
+  background: #98b8d6;
   width: 170px;
   height: 40px;
   display: flex;
@@ -114,20 +114,27 @@
   transform: scale(0.01);
 }
 .SubNavbar .category-menu li.is-active button {
-  border-bottom: solid 2px var(--bright-green);
+  border-bottom: solid 3px #98b8d6;
 }
 .SubNavbar .category-menu li button {
   cursor: pointer;
   transition: all 0.1s ease;
   border: none;
   background: transparent;
-  outline: none;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 19px;
   padding-bottom: 10px;
   border-bottom: solid 2px transparent;
   transition: all 0.2s ease;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.SubNavbar .category-menu li button:hover {
+  background-color: whitesmoke;
+  padding: 13px;
+  border-radius: 50px;
+}
+
 .SubNavbar .category-menu li button:active {
-  transform: translateY(1px);
+  transform: translateY(.5px);
 }
