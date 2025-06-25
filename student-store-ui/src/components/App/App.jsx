@@ -56,26 +56,31 @@ function App() {
     setIsCheckingOut(true);
     setError(null);
 
+    //creating the array of order items
     const items = Object.keys(cart).map((productId) => {
       const product = products.find((p) => p.id === Number(productId));
+      //returns an object with the productId, quantity, and price of the order item
       return {
-        productId: productId,
-        quantity: cart[productId],
-        price: product?.price,
+        productId: Number(productId), 
+        quantity: Number(cart[productId]),
+        price: Number(product?.price),
       };
     });
-    const { name, email } = userInfo;
+    //getting the user's name and dorm number from the userInfo object
+    const { name, dormNumber } = userInfo;
+    //calculating order totals
     const subTotal = items.reduce((acc, item) => acc + calculateItemSubtotal(item.price, item.quantity), 0);
     const taxesAndFees = calculateTaxesAndFees(subTotal);
     const totalWithTaxesAndFees = calculateTotal(subTotal);
+    //creating the order object
     const order = {
-      customer: name,
-      dorm_number: email,
-      total_price: Number(totalWithTaxesAndFees.toFixed(2)),
+      customer: Number(name),
+      dormNumber: Number(dormNumber),
+      totalPrice: Number(totalWithTaxesAndFees.toFixed(2)),
       status: "pending",
-      createdAt: new Date(),
-      items: items
+      orderItems: items
     };
+    //making a post request to the orders endpoint with the order object
     try {
       console.log(order);
       const response = await axios.post("http://localhost:3000/orders", order);
@@ -83,7 +88,12 @@ function App() {
       setIsCheckingOut(false);
       setUserInfo({ name: "", dorm_number: "" });
     } catch (error) {
-      console.error(error);
+      console.error({
+        message: error.message, 
+        code: error.code,
+        meta: error.meta,
+      });
+
       setError("Checkout failed. Please try again.");
       setIsCheckingOut(false);
     }

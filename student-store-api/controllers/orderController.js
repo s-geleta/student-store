@@ -47,14 +47,33 @@ exports.getOrderById = async (req, res) => {
 
 exports.createOrder = async (req, res) => {
     try {
+        const { customer, totalPrice, status, orderItems } = req.body;
+
+
         //creating a new order in the database
         const order = await prisma.order.create({
-            data: req.body,
+            data: {
+                customer: Number(customer),
+                totalPrice: Number(totalPrice),
+                status: status,
+                orderItems: {
+                    create: orderItems.map((item) => ({
+                        productId: Number(item.productId),
+                        quantity: Number(item.quantity),
+                        price: Number(item.price),
+                    })),
+                },
+            },
+            include: {
+                orderItems: true,
+            },
         })
         //sending the order to the client
-        res.json(order)
+        return res.json(order)
     } catch (error) {
-        res.status(500).json({ message: 'Server error' })
+        console.error(error.message);
+        console.error(error.stack);
+        return res.status(500).json({ message: 'Server error' })
     }
 }
 
