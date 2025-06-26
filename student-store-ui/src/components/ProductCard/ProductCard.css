@@ -26,10 +26,18 @@
   display: flex;
   flex-direction: column;
 }
+
+.ProductCard .media img:hover {
+  transform: scale(1.07);
+  transition: 0.3s;
+}
 .ProductCard .product-info {
   flex: 1;
   display: flex;
-  border-top: solid 2px whitesmoke;
+  border-top: solid 2px white;
+  background: whitesmoke;
+  border-radius: 14px;
+  box-shadow: inset 0px 0px 4px grey;  
 }
 .ProductCard .info {
   flex: 1;
