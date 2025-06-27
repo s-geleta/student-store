@@ -66,6 +66,7 @@ exports.getAllProducts = async (req, res) => {
             //sending the product to the client
             res.json(product)
         } catch (error) {
+            //sending a message to the client stating that the product was not created
             res.status(500).json({ message: 'Server error' })
         }
     }

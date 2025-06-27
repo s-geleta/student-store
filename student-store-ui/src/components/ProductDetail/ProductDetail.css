@@ -87,6 +87,10 @@
   width: 140px;
 }
 
+.ProductDetail .add-to-cart:hover {
+  background-color: navy;
+}
+
 
 
 .ProductDetail .quantity {

@@ -5,19 +5,16 @@ exports.getAllOrders = async (req, res) => {
     try {
 
        
-        const { customerId } = req.query
+        const { customer } = req.query
         //fetching orders from database with the given filters
+       
         const orders = await prisma.order.findMany({
-            //filters by customerId
-            where: {
-                customer: Number(customerId),
-            },
-            //fetches the orderItems
             include: {
                 orderItems: true,
             },
-        })
+        });
         //sending the orders to the client
+        console.log(orders)
         res.json(orders)
     } catch (error) {
         res.status(500).json({ message: 'Server error' })
@@ -78,34 +75,54 @@ exports.createOrder = async (req, res) => {
 }
 
 exports.updateOrder = async (req, res) => {
-    try {
-        //updating an order in the database
-        const order = await prisma.order.update({
-            where: {
-                id: Number(req.params.id),
-            },
-            data: req.body,
-        })
-        //sending the order to the client
-        res.json(order)
-    } catch (error) {
-        res.status(500).json({ message: 'Server error' })
+  try {
+    const id = Number(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ message: 'Invalid order ID' });
     }
-}
+
+    const updatedOrder = await prisma.order.update({
+      where: { id },
+      data: {
+        customer: Number(req.body.customer),
+        totalPrice: Number(req.body.totalPrice),
+        status: req.body.status,
+      },
+    });
+
+    res.json(updatedOrder);
+  } catch (error) {
+    console.error('Update error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
 exports.deleteOrder = async (req, res) => {
-    try {
-        //deleting an order from the database
-        await prisma.order.delete({
-            where: {
-                id: Number(req.params.id),
-            },
-        })
-        //sending a message to the client
-        res.json({ message: 'Order deleted' })
-    } catch (error) {
-        res.status(500).json({ message: 'Server error' })
+  try {
+    const id = Number(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ message: 'Invalid order ID' });
     }
-}   
+
+    // Optional: check if the order exists
+    const existing = await prisma.order.findUnique({ where: { id } });
+    if (!existing) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    // Delete any related orderItems first if cascading is not set
+    await prisma.orderItem.deleteMany({ where: { orderId: id } });
+
+    // Then delete the order
+    await prisma.order.delete({ where: { id } });
+
+    res.json({ message: 'Order deleted' });
+  } catch (error) {
+    console.error('Delete error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
 
 exports.addOrderItem = async (req, res) => {
     try {
