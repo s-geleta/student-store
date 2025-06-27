@@ -98,28 +98,28 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+Video Link: [Loom Link](https://www.loom.com/share/649bc17ed3014c77865d54b8adfcb5c1?sid=9e845ed3-4f84-4d1f-b92e-8bc70c90d029)
 
-`ADD_EMBEDDED_CODE_HERE`
+`<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/649bc17ed3014c77865d54b8adfcb5c1?sid=baae6576-38fa-44f9-86fd-323d4eea6513" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes, I would say that the topics discussed definitely did help me to complete the assignment for this week, specifically the adopt-a-pet labs!
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have definitely implemented more stretch features such as adding a past orders page and getting the deployment to finish working.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Something that I think went well was the clarity of my presentation. One thing I could've worked on, however, was ensuring that my presentation isn't too rushed so I am able to display all my features.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+MDN and router/controller documentation.
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to all of my fellow scholars and instructors for the support and resources this past week!
